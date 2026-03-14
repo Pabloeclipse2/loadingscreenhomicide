@@ -19,7 +19,11 @@ body{
 
 /* Background */
 .bg{
-  position:fixed; inset:0;
+  position:fixed; 
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
   background:
     radial-gradient(900px 500px at 50% 42%, rgba(255,27,27,0.18) 0%, rgba(255,27,27,0.06) 35%, transparent 70%),
     linear-gradient(180deg, rgba(255,27,27,0.10) 0%, transparent 50%, rgba(255,27,27,0.06) 100%),
@@ -27,7 +31,11 @@ body{
 }
 
 .vignette{
-  position:fixed; inset:-20%;
+  position:fixed; 
+  top: -20%; 
+  right: -20%; 
+  bottom: -20%; 
+  left: -20%;
   background:
     radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.72) 100%);
   opacity: 0.55;
@@ -43,7 +51,10 @@ body{
 /* Floating plain text */
 .float-layer{
   position: fixed;
-  inset: 0;
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
   pointer-events: none;
   overflow: hidden;
 }
