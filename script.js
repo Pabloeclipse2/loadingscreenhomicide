@@ -1,16 +1,17 @@
-/* PABLO'S Z-CITY — Final Clean Version */
+/* PABLO'S Z-CITY — GMod Optimized JS */
 
 (() => {
   const subtitle = document.getElementById("subtitle");
   const floatLayer = document.getElementById("floatLayer");
 
+  // Hier sind deine neuen Sprueche hinzugefuegt:
   const floatPhrases = [
     "Pablo Moggs every Zcity",
     "Best Server?",
     "1 + 1 = 3",
-    "Crow Steals Files lmao",
-    "No AI slop Server!",
-    "Fun Owner and Staff!",
+    "Yo",
+    "Goy",
+    "Gurt",
     "Crow Steals Files lmao",
     "No AI slop Server!",
     "Fun Owner and Staff!",
@@ -32,8 +33,10 @@
 
     el.style.left = x + "%";
     el.style.top = y + "%";
-    el.style.setProperty("--dur", dur);
-    el.style.setProperty("--delay", delay);
+    
+    // GMod/Awesomium Fix: Direktes Setzen statt Variablen
+    el.style.animationDuration = dur;
+    el.style.animationDelay = delay;
 
     floatLayer.appendChild(el);
     setTimeout(() => el.remove(), 20000);
@@ -48,7 +51,7 @@
     setTimeout(() => spawnFloating(floatPhrases[i % floatPhrases.length]), i * 320);
   }
 
-  // GMod hooks (minimal, text only)
+  // GMod hooks
   window.SetStatusChanged = function(status){
     if (status){
       subtitle.textContent = status;
