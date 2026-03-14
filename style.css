@@ -1,65 +1,49 @@
-/* PABLO'S Z-CITY — Clean Floats Loading Screen */
+/* PABLO'S Z-CITY — GMod Optimized CSS */
 
-:root{
-  --bg:#050506;
-  --red:#ff1b1b;
-  --white:#ffffff;
-  --muted2: rgba(255,255,255,0.28);
-}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; margin:0; }
-
-body{
+body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  overflow:hidden;
-  background: var(--bg);
-  color: var(--white);
+  overflow: hidden;
+  background: #050506;
+  color: #ffffff;
 }
 
 /* Background */
-.bg{
-  position:fixed; 
-  top: 0; 
-  right: 0; 
-  bottom: 0; 
-  left: 0;
+.bg {
+  position: fixed; 
+  top: 0; right: 0; bottom: 0; left: 0;
+  /* Feste Farbe statt var(--bg) am Ende */
   background:
     radial-gradient(900px 500px at 50% 42%, rgba(255,27,27,0.18) 0%, rgba(255,27,27,0.06) 35%, transparent 70%),
     linear-gradient(180deg, rgba(255,27,27,0.10) 0%, transparent 50%, rgba(255,27,27,0.06) 100%),
-    var(--bg);
+    #050506;
 }
 
-.vignette{
-  position:fixed; 
-  top: -20%; 
-  right: -20%; 
-  bottom: -20%; 
-  left: -20%;
-  background:
-    radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.72) 100%);
+.vignette {
+  position: fixed; 
+  top: -20%; right: -20%; bottom: -20%; left: -20%;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.72) 100%);
   opacity: 0.55;
   animation: drift 10s linear infinite;
-  pointer-events:none;
+  pointer-events: none;
 }
 
-@keyframes drift{
-  0%{ transform: translate3d(0,0,0); }
-  100%{ transform: translate3d(-2%, 1.5%, 0); }
+@keyframes drift {
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-2%, 1.5%, 0); }
 }
 
 /* Floating plain text */
-.float-layer{
+.float-layer {
   position: fixed;
-  top: 0; 
-  right: 0; 
-  bottom: 0; 
-  left: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   pointer-events: none;
   overflow: hidden;
 }
 
-.floating{
+.floating {
   position: absolute;
   font-weight: 900;
   letter-spacing: 0.10em;
@@ -71,10 +55,11 @@ body{
     0 10px 32px rgba(0,0,0,0.55);
   opacity: 0;
   white-space: nowrap;
-  animation: floatFade var(--dur, 10s) ease-in-out var(--delay, 0s) infinite;
+  /* Variablen aus der Animation entfernt */
+  animation: floatFade 10s ease-in-out infinite;
 }
 
-@keyframes floatFade{
+@keyframes floatFade {
   0%   { transform: translate3d(0, 18px, 0); opacity: 0; }
   12%  { opacity: 0.48; }
   50%  { transform: translate3d(0, -26px, 0); opacity: 0.30; }
@@ -83,25 +68,26 @@ body{
 }
 
 /* Center title */
-.wrap{
-  position:relative;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.wrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 48px 60px;
 }
 
-.title{
-  text-align:center;
+.title {
+  text-align: center;
   letter-spacing: 0.06em;
   transform: translateY(-10px);
 }
 
-.title h1{
-  margin:0;
+.title h1 {
+  margin: 0;
   font-weight: 900;
-  font-size: clamp(44px, 6.2vw, 92px);
+  /* clamp() entfernt, da GMod das nicht kennt. Nutze VW für Skalierung */
+  font-size: 6.2vw; 
   line-height: 1.02;
   text-transform: uppercase;
   text-shadow:
@@ -109,25 +95,26 @@ body{
     0 0 60px rgba(255,27,27,0.10);
 }
 
-.w{ color: var(--white); }
+.w { color: #ffffff; }
 
-.z{
-  color: var(--red);
+.z {
+  color: #ff1b1b;
   text-shadow:
     0 0 18px rgba(255,27,27,0.55),
     0 0 60px rgba(255,27,27,0.18);
 }
 
-.subtitle{
+.subtitle {
   margin-top: 14px;
   font-size: 14px;
-  color: var(--muted2);
+  color: rgba(255,255,255,0.28);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.bar{
-  width: min(520px, 70vw);
+.bar {
+  width: 70vw;
+  max-width: 520px;
   height: 2px;
   margin: 18px auto 0;
   border-radius: 999px;
