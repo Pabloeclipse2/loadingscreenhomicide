@@ -10,7 +10,11 @@
     "1 + 1 = 3",
     "Yo",
     "Goy",
-    "Gurt"
+    "Gurt",
+    "Crow Steals Files lmao",
+    "No AI slop Server!",
+    "Fun Owner and Staff!",
+    "We love Garry"
   ];
 
   function spawnFloating(text){
